@@ -5,7 +5,8 @@ r4ds-ggplot2.Rmd
 viewer_output.Rmd
 css/epub.css
 render_all.R
-
+_epub
+_pdf
 # History files
 .Rhistory
 .Rapp.history
