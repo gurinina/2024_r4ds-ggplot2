@@ -7,6 +7,8 @@ css/epub.css
 render_all.R
 _epub
 _pdf
+r-for-data-science-workshop.html
+404.html
 # History files
 .Rhistory
 .Rapp.history
