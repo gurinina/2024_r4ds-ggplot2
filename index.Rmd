@@ -1,5 +1,5 @@
 ---
-title: "r4ds-ggplot2" 
+title: "2024_r4ds-ggplot2" 
 output:
   bookdown::gitbook:
     css: [css/git.css, css/toc.css]
@@ -8,20 +8,37 @@ output:
         collapse: section
       download: ["pdf", "epub"]
 link-citations: yes 
-github-repo: "gurinina/r4ds-ggplot2" 
-url: 'https://bookdown.org/ggiaever/r4ds-ggplot2'
-site: bookdown::bookdown_sit
+github-repo: "gurinina/2024_r4ds-ggplot2" 
+url: 'https://bookdown.org/ggiaever/2024_r4ds-ggplot2'
+site: bookdown::bookdown_site 
 documentclass: book
 cover-image: "images/koosggplot.png"
 ---
+```{r, include=FALSE}
+source("_common.R")
+```
 
-# R for data science workshop {-}
+```{r setup knitr, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,   
+  warning = FALSE,   
+  echo = TRUE
+)
+if (knitr::is_html_output()) {
+  knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
+} else if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(fig.width = 6, fig.height = 4)
+}
+```
+
+# R for data science workshop:  {-}
 
 <p align="center">
   <img src="images/koosggplot.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-This website us the ggplot visulization sections of Hadley Wickham's book [2nd edition of "R for Data Science"](https://r4ds.hadley.nz/).
+The published version for this module can be found on my bookdown site [2024_r4ds-ggplot2](https://bookdown.org/ggiaever/2024_r4ds-ggplot2).
+
+This module is based on the Data visualization chapter in Hadley Wickham's book [2nd edition of "R for Data Science"](https://r4ds.hadley.nz/)(see README.md).
 
 
-The published version for this module can be found on my bookdown site [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2).
