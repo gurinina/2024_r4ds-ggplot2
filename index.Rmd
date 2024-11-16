@@ -22,9 +22,11 @@ source("_common.R")
 ```{r setup knitr, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,   
-  warning = FALSE,   
+  warning = FALSE, 
+  comment = NA,
   echo = TRUE
 )
+
 if (knitr::is_html_output()) {
   knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 } else if (knitr::is_latex_output()) {
