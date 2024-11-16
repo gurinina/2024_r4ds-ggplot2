@@ -1,5 +1,6 @@
 ---
 title: "2024_r4ds-ggplot2" 
+knit: "bookdown::render_book"
 output:
   bookdown::gitbook:
     css: [css/git.css, css/toc.css]

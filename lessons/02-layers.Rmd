@@ -85,10 +85,12 @@ categorical variable is mapped to an aesthetic like `color` or `shape`
 #|   except for suv. Each plot comes with a legend that shows the 
 #|   mapping between color or shape and levels of the class variable.
 
-ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point() +
+g1 <- ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point() 
 
-ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() + 
-  plot_layout(ncol = 2)
+g2 <- ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() 
+
+
+g1 + g2
 ```
 
 Note the use of `plot_layout` from the `patchwork` package to layout the
@@ -364,12 +366,14 @@ for each unique value of the variable that you map to `linetype`.
 #|   intervals around the smooth curves are also displayed.
 
 # Top
-(ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
-  geom_smooth())/
+g1 <- (ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
+  geom_smooth())
 
 # Bottom
-ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + 
+g2 <- ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + 
   geom_smooth()
+
+g1/g2
 ```
 
 Here, `geom_smooth()` separates the cars into three lines based on their
