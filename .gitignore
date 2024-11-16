@@ -1,8 +1,8 @@
 # bookdown files
 _book
 _bookdown_files/
-r4ds-ggplot2_files/
-r4ds-ggplot2.Rmd
+2024_r4ds-ggplot2_files/
+2024_r4ds-ggplot2.Rmd
 viewer_output.Rmd
 css/epub.css
 render_all.R

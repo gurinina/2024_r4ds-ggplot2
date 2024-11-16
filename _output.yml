@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  df_print: kable
+  fig_caption: false  # Disable figure captions in Gitbook
   css: [css/git.css, css/toc.css]
   config:
     toc:
@@ -7,20 +7,16 @@ bookdown::gitbook:
     download: ["pdf", "epub"]
 
 bookdown::pdf_book:
-  extra_dependencies: ["listings"]
-  pandoc_args: ["--listings"]
+  fig_caption: false  # Disable figure captions in PDF output
+  pandoc_args: --listings
   includes:
-   in_header: lessons/preamble.tex
-  keep_tex: yes
-  dev: "cairo_pdf"
+    in_header: preamble.tex
   latex_engine: xelatex
-  citation_package: natbib
-  template: null
-  toc_depth: 3
-  toc_unnumbered: no
-  toc_appendix: yes
-  quote_footer: ["\\VA{", "}{}"]
-  cover-image: "images/koosggplot.png"
+  toc: true
+  number_sections: true
+  lof: false    # Disable List of Figures
+  lot: false    # Disable List of Tables
 
 bookdown::epub_book:
+  fig_caption: false  # Disable figure captions in EPUB output
   epub_version: "epub3"
