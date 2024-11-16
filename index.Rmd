@@ -37,7 +37,7 @@ if (knitr::is_html_output()) {
   <img src="images/koosggplot.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-The published version for this module can be found on my bookdown site [2024_r4ds-ggplot2](https://bookdown.org/ggiaever/2024_r4ds-ggplot2).
+The published version for this module can be found on my bookdown site [2024_r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 This module is based on the Data visualization chapter in Hadley Wickham's book [2nd edition of "R for Data Science"](https://r4ds.hadley.nz/)(see README.md).
 

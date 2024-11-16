@@ -24,7 +24,7 @@ and `ggridges` if you need to by uncommenting this code:
 
 ```{r}
 
-install.packages(c("patchwork","ggridges","scales"))
+# install.packages(c("patchwork","ggridges","scales"))
 
 ```
 
@@ -35,6 +35,8 @@ your session:
 library(tidyverse)
 library(patchwork)
 library(scales)
+library(ggplot2)
+library(ggrepel)
 ```
 
 ## Aesthetic mappings
@@ -48,6 +50,7 @@ models.
 ?mpg
 
 nrow(mpg)
+names(mpg)
 
 sapply(mpg,class)
 ```
@@ -73,7 +76,8 @@ categorical variable is mapped to an aesthetic like `color` or `shape`
 #| fig-asp: 0.4
 #| fig-show: hold
 #| fig-alt: |
-#|   Two scatterplots next to each other, both visualizing highway fuel #|   efficiency versus engine size of cars and showing a negative 
+#|   Two scatterplots next to each other, both visualizing highway fuel 
+#|   efficiency versus engine size of cars and showing a negative 
 #|   association. In the plot on the left class is mapped to the color 
 #|   aesthetic, resulting in different colors for each class. 
 #|   In the plot on the right class is mapped the shape aesthetic, 
@@ -82,7 +86,9 @@ categorical variable is mapped to an aesthetic like `color` or `shape`
 #|   mapping between color or shape and levels of the class variable.
 
 ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point() +
-ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() + plot_layout(ncol = 2)
+
+ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() + 
+  plot_layout(ncol = 2)
 ```
 
 Note the use of `plot_layout` from the `patchwork` package to layout the
@@ -94,7 +100,8 @@ Use `+` to plot them side-by-side:
 ```{r}
 #| fig-width: 10
 #| fig-asp: 0.4
-ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point() + ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() 
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point() + 
+  ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point() 
 ```
 
 Use '/' to plot them in one column:
@@ -104,7 +111,8 @@ Use '/' to plot them in one column:
 #| fig.width: 7
 #| out-width: "100%"
 
-(ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point())/ (ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point())
+(ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point())/ 
+  (ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + geom_point())
 ```
 
 Notice that parentheses are required for this operation unless you first
@@ -356,8 +364,8 @@ for each unique value of the variable that you map to `linetype`.
 #|   intervals around the smooth curves are also displayed.
 
 # Top
-ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
-  geom_smooth()
+(ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
+  geom_smooth())/
 
 # Bottom
 ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + 
@@ -443,7 +451,7 @@ g <- ggplot(mpg, aes(x = displ, y = hwy)) +
 
 g + geom_point(
   data = mpg %>% filter(class == '2seater'),
-  shape = "circle open",
+  shape = 21,
   size = 3,
   color = "red"
 )

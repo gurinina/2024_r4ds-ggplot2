@@ -14,14 +14,14 @@ In this chapter, we'll focus once again on ggplot2. We'll also use a little **dp
 Uncomment the following line if you need to install any of these packages (you should have `tidyverse`:
 
 ```{r, out.width="80%"}
-install.packages(c("patchwork","scales","ggthemes"))
+# install.packages(c("patchwork","scales","ggthemes"))
 ```
 
 
 ```{r, out.width="80%"}
 #| label: setup
 #| message: false
-
+library(ggplot2)
 library(tidyverse)
 library(scales)
 library(ggrepel)
