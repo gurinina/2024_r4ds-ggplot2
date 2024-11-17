@@ -19,7 +19,7 @@ cover-image: "images/koosggplot.png"
 source("_common.R")
 ```
 
-```{r setup knitr, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,   
   warning = FALSE, 
