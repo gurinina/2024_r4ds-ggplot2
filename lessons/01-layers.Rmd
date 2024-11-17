@@ -322,17 +322,18 @@ How are these two plots similar?
 
 Both plots contain the same x variable, the same y variable, and both describe the same data. But the plots are not identical. Each plot uses a different geometric object, `geom`, to represent the data. The first plot uses the point geom, and the plot on the second uses the smooth geom, a smooth line fitted to the data.
 
-To change the geom in your plot, change the geom function that you add to `ggplot()`. For instance, to make the plots above, you can use the following code:
+To change the `geom` in your plot, change the geom function that you add to `ggplot()`. For instance, to make the plots above, you can use the following code:
 
 ```{r}
 #| fig-width: 6
 # point
-ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() +
+p1 <- ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() 
 
 # smooth
-ggplot(mpg, aes(x = displ, y = hwy)) + geom_smooth()
-```
+p2 <- ggplot(mpg, aes(x = displ, y = hwy)) + geom_smooth()
 
+p1 + p2
+```
 Every geom function in ggplot2 takes a `mapping` argument, either defined locally in the geom layer or globally in the `ggplot()` layer.
 
 However, not every aesthetic works with every geom. You could set the shape of a point, but you couldn't set the "shape" of a line. If you try, ggplot2 will silently ignore that aesthetic mapping. On the other hand, you *could* set the `linetype` of a line.
@@ -351,14 +352,14 @@ However, not every aesthetic works with every geom. You could set the shape of a
 #|   intervals around the smooth curves are also displayed.
 
 # Top
-(ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
-  geom_smooth()) /
+p1 <- ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + 
+  geom_smooth()
 
 # Bottom
-(ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + 
-  geom_smooth())
+p2 <- ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + 
+  geom_smooth()
 
-g1/g2
+p1/p2
 ```
 
 Here, `geom_smooth()` separates the cars into three lines based on their
