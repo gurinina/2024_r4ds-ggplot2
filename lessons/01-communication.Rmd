@@ -545,30 +545,36 @@ Note that the name of the argument in `guides()` matches the name of the aesthet
 
 Instead of just tweaking the details a little, you can instead replace the scale altogether.
 There are two types of scales you're mostly likely to want to switch out: continuous position scales and color scales.
+
 Fortunately, the same principles apply to all the other aesthetics, so once you've mastered position and color, you'll be able to quickly pick up other scale replacements.
 
 It's very useful to plot transformations of your variable.
 For example, it's easier to see the precise relationship between `carat` and `price` if we log transform them:
 
-```{r, out.width="80%"}
+```{r}
 #| fig-width: 7
 #| fig-alt: |
-#|   Two plots of price versus carat of diamonds. Data binned and the color of
-#|   the rectangles representing each bin based on the number of points that
-#|   fall into that bin. In the second plot, price and carat values
+#|   Two plots of price versus carat of diamonds. Data binned and the color of 
+#|   the rectangles representing each bin based on the number of points that 
+#|   fall into that bin. In the second plot, price and carat values 
 #|   are logged and the axis labels shows the logged values.
 
 # price vs. caret
-ggplot(diamonds, aes(x = carat, y = price)) +
-  geom_hex()
+p1 <- ggplot(diamonds, aes(x = carat, y = price)) +
+  geom_point()
 
 # log10 price vs log10 caret
-ggplot(diamonds, aes(x = log10(carat), y = log10(price))) +
-  geom_hex()
+p2 <- ggplot(diamonds, aes(x = log10(carat), y = log10(price))) + geom_point()
+
+
+p1 + p2
 ```
 
+
 However, the disadvantage of this transformation is that the axes are now labelled with the transformed values, making it hard to interpret the plot.
+
 Instead of doing the transformation in the aesthetic mapping, we can instead do it with the scale.
+
 This is visually identical, except the axes are labelled on the original data scale.
 
 ```{r, out.width="80%"}
@@ -578,14 +584,17 @@ This is visually identical, except the axes are labelled on the original data sc
 #|   fall into that bin. The axis labels are on the original data scale.
 
 ggplot(diamonds, aes(x = carat, y = price)) +
-  geom_hex() +
+  geom_point() +
   scale_x_log10() +
   scale_y_log10()
 ```
 
 Another scale that is frequently customized is color.
+
 The default categorical scale picks colors that are evenly spaced around the color wheel.
+
 Useful alternatives are the RColorBrewer scales which have been hand tuned to work better for people with common types of color blindness.
+
 The two plots below look similar, but there is enough difference in the shades of red and green that the dots on the right can be distinguished even by people with red-green color blindness.[^communication-1]
 
 [^communication-1]: You can use a tool like [SimDaltonism](https://michelf.ca/projects/sim-daltonism/) to simulate color blindness to test these images.
@@ -704,11 +713,14 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 ```
 
 Let's compare these to the two plots below where the plot on the left sets the `limits` on individual scales and the plot on the right sets them in `coord_cartesian()`.
-We can see that reducing the limits is equivalent to subsetting the data.
-Therefore, to zoom in on a region of the plot, it's generally best to use `coord_cartesian()`.
 
-2. Setting the limits in each scale (left)
-3. Setting `xlim` and `ylim` in `coord_cartesian()` (right).
+`coord_cartesian()` is generally more useful if you want to zoom in on a region of the plot.
+
+We can see that reducing the limits is equivalent to subsetting the data.
+Therefore, to zoom in on a region of the plot, it's generally best to use `coord_cartesian()`. because it doesn't change the fitting of `geom_smooth`.
+
+2. Setting the limits in each scale (left).
+3.  Setting `xlim` and `ylim` in `coord_cartesian()` (right).
 ```{r, out.width="80%"}
 #| fig-alt: |
 #|   On the left, scatterplot of highway mileage vs. displacement, with
