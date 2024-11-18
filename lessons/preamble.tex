@@ -12,6 +12,9 @@
 
 \usepackage{lscape}      % For landscape orientation (if needed)
 
+\usepackage{adjustbox}
+\newcommand{\defaultimage}[1]{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
+
 % Custom commands
 \newcommand{\vect}[1]{\boldsymbol{#1}}  % Command to bold vectors
 
@@ -51,7 +54,8 @@
 
 % Remove default behavior to start chapters on a new page
 \let\oldchapter\chapter
-\renewcommand{\chapter}{\clearpage\oldchapter}
+\renewcommand{\chapter}{\newpage\oldchapter}
+
 
 \usepackage{titlesec} % Customizes section titles
 \titleformat{\chapter}[display]

@@ -3,9 +3,7 @@ _book
 _bookdown_files/
 2024_r4ds-ggplot2_files/
 2024_r4ds-ggplot2.Rmd
-viewer_output.Rmd
-css/epub.css
-render_all.R
+scripts/viewer_output.Rmd
 _epub
 _pdf
 r-for-data-science-workshop.html

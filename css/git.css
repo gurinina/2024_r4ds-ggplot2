@@ -45,11 +45,22 @@ th, td {
 
 /* This targets pre and code elements together to style code blocks */
 pre code {
-  white-space: pre-wrap;            /* Ensures the text wraps within code blocks */
-  font-size: 12px;                  /* Sets the font size to 12px */
-  color: black;                     /* Sets the text color to black */
-  background-color: #D7DDFD!important; /* Sets a lighter blue background for code blocks */
+  white-space: pre-wrap;               /* Ensures the text wraps within code blocks */
+  font-size: 12px;                     /* Sets the font size to 12px */
+  color: black;                        /* Sets the text color to black */
+  background-color: #D7DDFD !important; /* Sets a lighter blue background for code blocks */
 }
+
+/* Additional styles for comments */
+pre code .cm-comment {
+  display: block;                      /* Ensures comments wrap properly */
+  white-space: pre-wrap;               /* Allows wrapping of text */
+  max-width: 80ch;                     /* Limits comments to 80 characters */
+  word-wrap: break-word;               /* Breaks long words if necessary */
+  color: #555;                         /* Optional: Sets a slightly muted color for comments */
+  font-style: italic;                  /* Optional: Makes comments italicized */
+}
+
 
 .showopt {
   background-color: #000080;
